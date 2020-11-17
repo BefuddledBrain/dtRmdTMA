@@ -1,0 +1,139 @@
+---
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    keep_tex: true
+    template: "O:/Rstats/Rmarkdown/dtRmdTex/mytemplate.tex"
+    
+params:
+  name1: "Norma "
+  name2: "Stitz"
+  id: "X1234567"
+  module: "M248"
+  tma: 04
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- 
+Writing a TMA in RMarkdown should be easier than in LaTeX.
+
+Before using this Rmarkdown file:
+
+Store "mytemplate.tex" wherever you want but edit the path in the YAML.
+
+Store this Rmd file wherever you want (e.g. "c:/OUstuff/M299/TMAfiles"Rename this "test.Rmd")
+Rename the file so that it has same name that you want for your TMA submission, e.g. instead of
+"test.Rmd", rename it e.g. "JoanBloggs_X1234567_M111_TMA01.Rmd", or whatever.
+
+If you use \includegraphics, either keep image files in your TMAfile folder or use
+e.g. includegraphics[scale=0.75]{"/path/image.png"}
+
+Alter the details in "params" in the YAML, write LaTeX code for the TMA (omit \begin{document}
+and \end{document}), and compile with Ctrl-Shift-K.
+
+If you use \includegraphics, either keep image files in your TMAfile folder or use
+e.g. includegraphics[scale=0.75]{"/path/image.png"}
+
+If you're mad enough to create plots (why would you when you've got ggplot2 from within Rmarkdown!)
+and diagrams, then you will have to edit "mytemplate.tex" to uncomment the relative entries that
+initialise those libraries.
+
+Note:
+I haven't used the OU tma.sty file to create "mytemplate.tex", because I preferred a few of my own quirky formats (notably for question numbers), though I have pilfered most of the clever stuff from it. 
+-->
+
+
+
+<!-- % Q1 a -->
+\marginnote{\raggedleft \textbf{Q1 a}}<!-- [5mm] -->\vspace{-5mm}
+\refstepcounter{Eq}
+
+The concentration of substance in the blood is modelled by \(f(t)=Ae^{kt} \, (t \ge 1) \).
+
+At 2 hours:
+\begin{align}
+	Ae^{2t} &= 195 \\
+	\intertext{And, at 10 hours the concentration is:}
+	Ae^{10k} &= 98 \\
+	\intertext{We eliminate \(A\) by dividing equation (2) by equation (1):}
+	\frac{Ae^{10k}}{Ae^{2k}} &= \frac{98}{195} \nonumber \\
+	e^{10k-2k} &= \frac{98}{195} \nonumber \\
+	8k &= \ln \left(\frac{98}{195}\right) \nonumber \\
+	k &= \frac{ \ln \left(\frac{98}{195}\right)}{8} \nonumber \\
+	k &= -0.0860... \nonumber \\
+	\intertext{So the constant \(k\) is -0.0860 (3 s.f.). We then find the value of constant \(A\) by substitution into equation (2):}
+	Ae^{10k} &= 98 \nonumber \\
+	Ae^{10 \times -0.0860...} &= 98 \nonumber \\
+	A &= \frac{98}{e^{-0.860...}} \nonumber \\
+	&= 231.599...
+\end{align}
+So, constant \(A=232\) and constant \(k=-0.0860\) (3 sf).
+
+\vspace{20mm}
+
+<!-- % Q1 b -->
+\marginnote{\raggedleft \textbf{b}}<!-- [5mm] -->\vspace{-5mm}
+The blood concentration falls to 3 ng/ml when \(f(t)=3\). Therefore:
+\begin{align}
+	Ae^{kt} &= 3 \nonumber \\
+	\intertext{Re-arranging to make \(t\) the subject of the equation:}
+	e^{kt} &= \frac{3}{A} \nonumber \\
+	kt &= \ln \left(\frac{3}{A}\right) \\
+	t &= \frac{\ln \left(\frac{3}{A}\right)}{k} \nonumber \\
+	\intertext{Substituting our calculated values for \(A\) and \(k\):}
+	t &=  \frac{\ln \left(\frac{3}{231.599...}\right)}{-0.0860...} \nonumber \\
+	&= 50.537... \nonumber 
+\end{align}
+So, the blood concentration falls to 3 ng/ml after 51 hours (to nearest hour).
+	
+\vspace{30mm}
+
+<!-- % Q2 -->
+\marginnote{\raggedleft \textbf{Q2}}<!-- [5mm] -->\vspace{-5mm}
+\refstepcounter{Eq}
+
+To define the columns in the table of signs, we consider the values of \(x\) when \(5-2x=0\) and \(3x+4=0\), and also the open intervals on either side of each of these values of \(x\).
+\begin{align}
+	\text{When:} \qquad 5-2x &= 0 \nonumber \\
+	x &= \frac{5}{2} \\
+	\text{And when:} \qquad 3x+4 &= 0 \nonumber \\
+	x &= -\frac{4}{3}
+\end{align}
+ 
+ In this case, we are looking for intervals in a solution set which contain a negative quotient to satisfy the condition that  \(\frac{5-2x}{3x+4}<0\).
+ 
+\begin{tabular}{ | l | c | c | c | c | c | }	%{ |l|c|c| }
+\cline{2-6}
+\multicolumn{1}{l|}{} 
+& \hspace{3mm} \((- \infty, -\frac{4}{3})\) \hspace{3mm}
+& \hspace{3mm} \(-\frac{4}{3}\) \hspace{3mm}
+& \hspace{3mm}  \((-\frac{4}{3},\frac{5}{2})\) \hspace{3mm} 
+& \hspace{3mm} \(\frac{5}{2}\) \hspace{3mm}
+& \hspace{3mm} \((\frac{5}{2}, \infty)\) \hspace{3mm} 
+\\
+\hline
+\(5-2x\) & + & + & + & 0 & - \\
+\hline
+\(3x+4\) & - & 0 & + & + & + \\
+\hline
+\(\frac{5-2x}{3x+4}\) & - & * & + & 0 & - \\
+\hline
+\end{tabular}
+
+\vspace{30mm}
+
+<!-- % Q3 a (iii) -->
+\marginnote{\raggedleft \textbf{Q3 a (iii)}}<!-- [5mm] -->\vspace{-5mm}
+\refstepcounter{Eq}
+
+The completed square form of \(f(x)=x^2+4x+1\) is:
+\begin{align}
+	f(x) &= [x^2+4x]+1 \nonumber \\
+	&= [(x+2)^2-4]+1 \\
+	&= (x+2)^2-3 \nonumber 
+\end{align}
+ This is equivalent to \(f(x)=(x+a)^2-b\), where \(a=2\) and \(b=3\).
