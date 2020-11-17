@@ -1,5 +1,5 @@
 # dtRmdTMA
-This repository has an RMarkdon file and template for producing OU TMAs, [VERY] loosely based on the OUSA tma.sty. I'm hoping that writing a TMA in RMarkdown might be easier than in LaTeX.
+This repository has an RMarkdown file and template for producing OU TMAs, [VERY] loosely based on the OUSA tma.sty. I'm hoping that writing a TMA in RMarkdown might be easier than in LaTeX.
 
 Since starting with MU123 a few years ago, I have enjoyed producing my TMAs in LaTeX but since embarking on trying to learn R, I have become obsessed with transfering my typesetting to RMarkdown. I have no particular reason for doing so other than because it's there ... and there may come a time when I can legitimately chuck in some rudimentary coding skills too, maybe to produce some canny-looking plots with ggplot2.
 
