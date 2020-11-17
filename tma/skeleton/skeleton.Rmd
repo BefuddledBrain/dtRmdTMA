@@ -19,8 +19,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <!-- 
-"Copy" from <\!-- % Q1 a --> to \vspace{30mm} (before Q2 starts), then "Paste" and appropriately
-re-number to use as a template for subsequent questions.
+Suggestion: "Copy" from <\!-- % Q1 a --> to \vspace{30mm} (before Q2 starts), then "Paste" and 
+appropriately re-number to use as a template for subsequent questions.
 
 DO NOT ADD \begin{document} ... \end{document} AS THAT IS DONE NY THE TEMPLATE FILE.
 -->
