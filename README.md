@@ -31,9 +31,9 @@ Before using this Rmarkdown file:
 
 Store "mytemplate.tex" wherever you want but edit the path in the YAML.
 
-Store this Rmd file wherever you want (e.g. "c:/OUstuff/M299/TMAfiles"Rename this "test.Rmd"). 
-Rename the file so that it has same name that you want for your TMA submission, e.g. instead of 
-"test.Rmd", rename it e.g. "JoanBloggs_X1234567_M111_TMA01.Rmd", or whatever.
+Store the skeleton.Rmd file wherever you want (e.g. "c:/OUstuff/M299/TMAfiles"). Rename the file 
+so that it has same name that you want for your TMA submission, e.g. instead of "skeleton.Rmd", 
+rename it e.g. "JoanBloggs_X1234567_M111_TMA01.Rmd", or whatever.
 
 If you use \includegraphics, either keep image files in your TMAfile folder or use 
 e.g. includegraphics[scale=0.75]{"/path/image.png"}
