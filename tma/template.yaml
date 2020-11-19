@@ -1,4 +1,4 @@
-name: Rudimentary effort
+name: dtRmdTMA
 description: >
-   This is an attempt at an RMarkdown TMA file. Ignore this file for now.
-create_dir: FALSE
+   Produce TMA submissions with an RMarkdown template.
+create_dir: TRUE
