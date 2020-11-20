@@ -15,20 +15,44 @@ params:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo =FALSE, error = FALSE, warning=FALSE)
+suppressWarnings(suppressMessages(suppressPackageStartupMessages(library(ggplot2))))
+
 ```
 
-<!-- 
-Suggestion: "Copy" from <\!-- % Q1 a --> to \vspace{30mm} (before Q2 starts), then "Paste" and 
-appropriately re-number to use as a template for subsequent questions.
 
-DO NOT ADD \begin{document} ... \end{document} AS THAT IS DONE NY THE TEMPLATE FILE.
+<!-- 
+Writing a TMA in RMarkdown should be easier than in LaTeX.
+
+Before using this Rmarkdown file:
+
+Store "mytemplate.tex" wherever you want but edit the path in the YAML.
+
+Store this Rmd file wherever you want (e.g. "c:/OUstuff/M299/TMAfiles"Rename this "test.Rmd")
+Rename the file so that it has same name that you want for your TMA submission, e.g. instead of
+"test.Rmd", rename it e.g. "JoanBloggs_X1234567_M111_TMA01.Rmd", or whatever.
+
+If you use \includegraphics, either keep image files in your TMAfile folder or use
+e.g. includegraphics[scale=0.75]{"/path/image.png"}
+
+Alter the details in "params" in the YAML, write LaTeX code for the TMA (omit \begin{document}
+and \end{document}), and compile with Ctrl-Shift-K.
+
+If you use \includegraphics, either keep image files in your TMAfile folder or use
+e.g. includegraphics[scale=0.75]{"/path/image.png"}
+
+If you're mad enough to create plots (why would you when you've got ggplot2 from within Rmarkdown!)
+and diagrams, then you will have to edit "mytemplate.tex" to uncomment the relative entries that
+initialise those libraries.
+
+Note:
+I haven't used the OU tma.sty file to create "mytemplate.tex", because I preferred a few of my own quirky formats (notably for question numbers), though I have pilfered most of the clever stuff from it. 
 -->
 
 
 
 <!-- % Q1 a -->
-\marginnote{\raggedleft \textbf{Q1 a}}<!-- [5mm] -->\vspace{-5mm}
+\marginnote{\raggedleft \textbf{Q1 a}}\vspace{-5mm}
 \refstepcounter{Eq}
 
 The concentration of substance in the blood is modelled by \(f(t)=Ae^{kt} \, (t \ge 1) \).
@@ -71,6 +95,40 @@ So, the blood concentration falls to 3 ng/ml after 51 hours (to nearest hour).
 	
 \vspace{30mm}
 
+<!-- % Q1 c -->
+\marginnote{\raggedleft \textbf{c}}\vspace{-5mm}
+
+Let's try a plot:
+
+```{r label = "ggplot", echo =FALSE, error = FALSE, warning=FALSE}
+library(ggplot2)
+library(latex2exp)
+
+p <- ggplot(mtcars, aes(wt, mpg), position = "jitter") + 
+  geom_point(colour = "darkred") +
+  theme_bw() +
+  theme(
+    text = element_text(family="Times"),
+    plot.title = element_text(color = "black", size = 11, face = "bold", hjust = 0),
+    plot.subtitle = element_text(color = "black", size = 8, hjust = 0),
+    plot.caption = element_text(color = "black", size = 8),
+    axis.title.x = element_text(size=8),
+    axis.title.y = element_text(size=8)
+  ) +
+  labs(
+    title=TeX("Using $\\LaTeX$ in the main title!"),
+    subtitle="Subtitle can add info but doesn't in this example.",
+    caption = TeX("A $\\LaTeX$ formula: $\\frac{2hc^2}{\\lambda^5}\\,\\frac{1}{e^{\\frac{hc}{\\lambda k_B T}} - 1}$"),
+    y="Fuel consumption (mpg)",
+    x="Measure of driving ability"
+  ) +
+  scale_x_continuous(limits = c(0, 6), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, 40), expand = c(0, 0))
+p
+```
+
+\vspace{20mm}
+
 <!-- % Q2 -->
 \marginnote{\raggedleft \textbf{Q2}}<!-- [5mm] -->\vspace{-5mm}
 \refstepcounter{Eq}
@@ -103,7 +161,7 @@ To define the columns in the table of signs, we consider the values of \(x\) whe
 \hline
 \end{tabular}
 
-\vspace{30mm}
+\newpage{}
 
 <!-- % Q3 a (iii) -->
 \marginnote{\raggedleft \textbf{Q3 a (iii)}}<!-- [5mm] -->\vspace{-5mm}
@@ -116,3 +174,22 @@ The completed square form of \(f(x)=x^2+4x+1\) is:
 	&= (x+2)^2-3 \nonumber 
 \end{align}
  This is equivalent to \(f(x)=(x+a)^2-b\), where \(a=2\) and \(b=3\).
+
+\vspace{15mm}
+ 
+<!-- % Q3 b (i) -->
+\marginnote{\raggedleft \textbf{Q3 b (i)}}<!-- [5mm] -->\vspace{-5mm}
+\refstepcounter{Eq}
+
+<!-- Next line should be: \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}} -->
+<!-- but pandoc doesn't like the optional parameter "[1]" for some reason. This mod works: -->
+\newcolumntype{C}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{10mm}}
+\begin{tabular}
+	{p{16mm} C C C C C C C}
+	\hline \\
+	\(x\) & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+	\(p(x)\) & 0.3 & 0.2 & 0.2 & 0.1 & 0.1 & 0.05 & 0.05  \\
+	\(F(x)\) & 0.3 & 0.5 & 0.7 & 0.8 & 0.9 & 0.95 & 1  \\
+	\\
+	\hline
+\end{tabular}
