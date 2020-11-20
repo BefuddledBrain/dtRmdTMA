@@ -25,6 +25,11 @@ The equation counter "{Eq}" for the equation numbers is initialised in the templ
 
 If you don't want or need equation numbers, just delete the line wherever it appears.
 
+## Latest additions (20/11/2020)
+Added ggplot2 to demo file. It includes:
+* Code to add LaTeX text or maths expressions to any text in the plot.
+* All text in the plot defaults to "serif" (try "Times" or "Palatino" if you prefer)
+* It is possible to use Donald Knuth's "computer modern" font but the process is too convoluted for a Friday night.
 
 ## Suggestions
 Before using this Rmarkdown file:
