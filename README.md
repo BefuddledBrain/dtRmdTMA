@@ -25,11 +25,8 @@ The equation counter "{Eq}" for the equation numbers is initialised in the templ
 
 If you don't want or need equation numbers, just delete the line wherever it appears.
 
-## Latest additions (20/11/2020)
-Added ggplot2 to demo file. It includes:
-* Code to add LaTeX text or maths expressions to any text in the plot.
-* All text in the plot defaults to "serif" (try "Times" or "Palatino" if you prefer)
-* It is possible to use Donald Knuth's "computer modern" font but the process is too convoluted for a Friday night.
+## Latest additions (15/06/2023)
+I've changed to using Quarto instead of Rmarkdown. No convincing reason; I just wanted to try it out because I was seeing more noise about it. I can't remember if I had to adapt the TEX file to use with Quarto.
 
 ## Suggestions
 Before using this Rmarkdown file:
